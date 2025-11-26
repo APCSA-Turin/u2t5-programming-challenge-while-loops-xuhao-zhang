@@ -29,9 +29,19 @@ public class WhileLoops {
     * countEvensUpTo(6) -> 3 // {2, 4, 6}
     * countEvensUpTo(10) -> 5 // {2, 4, 6, 8, 10}
     */
-   public static int countEvensUpTo(int n) {
-       // YOUR CODE HERE
-       return -1;
+    public static int countEvensUpTo(int n) {
+        int counter = 0;
+        int numberEvenCount = 0;
+        String list = "";
+        if (n < 2) {
+            return 0;
+        }
+        while (counter + 2 <= n) {
+            counter = counter + 2;
+            list = list + " " + counter;
+            numberEvenCount++;
+        }
+        return numberEvenCount;
    }
 
 
@@ -46,9 +56,19 @@ public class WhileLoops {
     * digitSum(4098) -> 21 // 4 + 0 + 9 + 8
     * digitSum(199) -> 19 // 1 + 9 + 9
     */
-   public static int digitSum(int n) {
-       // YOUR CODE HERE
-       return -1;
+    public static int digitSum(int n) {
+        int digit = ("" + n).length();
+        int initialDigit = digit;
+        int counter = 0;
+        int sum = 0;
+        int leftNumbers =  n;
+        while (counter < initialDigit) {
+            counter++;
+            sum = sum + leftNumbers * (int) Math.pow(0.1, digit - 1);
+            leftNumbers = leftNumbers % (int) Math.pow(0.1, digit - 1);
+            digit = digit - 1;
+        }
+        return sum;
    }
 
 
@@ -72,8 +92,13 @@ public class WhileLoops {
     * // can't subtract without going negative
     */
    public static int countDownBy(int start, int step) {
-       // YOUR CODE HERE
-       return -1;
+       while (start - step >= 0) {
+        start = start - step;
+       }
+       if (start < 0) {
+        start = 0;
+       }
+       return start;
    }
 
 
@@ -105,8 +130,12 @@ public class WhileLoops {
     * // 10 -> 20 -> 30 -> 40
     */
    public static int weeksToReachGoal(int startBalance, int weeklyDeposit, int goalBalance) {
-       // CODE HERE
-       return -1;
+    int count = 0;
+       while (startBalance < goalBalance) {
+        count++;
+        startBalance = startBalance + weeklyDeposit;
+       }
+       return count;
    }
 
 
@@ -140,8 +169,18 @@ public class WhileLoops {
     * // battery would never drain
     */
    public static int minutesUntilDead(int startPercent, int perMinuteUse) {
-       //YOUR CODE HERE
-       return -1;
+    int count = 0;
+    if (startPercent == 0) {
+        return 0;
+    } else if (perMinuteUse == 0) {
+        return 0;
+    } else{
+        while (startPercent > 0) {
+            count ++;
+            startPercent = startPercent - perMinuteUse;
+        }
+        return count;
+    }
    }
 }
 

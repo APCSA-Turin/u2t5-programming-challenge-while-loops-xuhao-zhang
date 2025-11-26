@@ -16,7 +16,7 @@ dependencies {
 
 java {
 	toolchain {
-		languageVersion = JavaLanguageVersion.of(17) // Use Java 17+ for modern features
+		languageVersion = JavaLanguageVersion.of(21) // Use Java 21 LTS
 	}
 }
 
