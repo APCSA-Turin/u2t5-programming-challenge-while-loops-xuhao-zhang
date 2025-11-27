@@ -57,19 +57,13 @@ public class WhileLoops {
     * digitSum(199) -> 19 // 1 + 9 + 9
     */
     public static int digitSum(int n) {
-        int digit = ("" + n).length();
-        int initialDigit = digit;
-        int counter = 0;
         int sum = 0;
-        int leftNumbers =  n;
-        while (counter < initialDigit) {
-            counter++;
-            sum = sum + leftNumbers * (int) Math.pow(0.1, digit - 1);
-            leftNumbers = leftNumbers % (int) Math.pow(0.1, digit - 1);
-            digit = digit - 1;
+        while (n > 0) {
+            sum += n % 10;   // takes the last digit
+            n /= 10;         // removes the last digit
         }
         return sum;
-   }
+    }
 
 
    /**
@@ -92,6 +86,9 @@ public class WhileLoops {
     * // can't subtract without going negative
     */
    public static int countDownBy(int start, int step) {
+        if (step <= 0) {
+            return start;
+        }
        while (start - step >= 0) {
         start = start - step;
        }
@@ -170,9 +167,9 @@ public class WhileLoops {
     */
    public static int minutesUntilDead(int startPercent, int perMinuteUse) {
     int count = 0;
-    if (startPercent == 0) {
+    if (startPercent <= 0) {
         return 0;
-    } else if (perMinuteUse == 0) {
+    } else if (perMinuteUse <= 0) {
         return 0;
     } else{
         while (startPercent > 0) {
